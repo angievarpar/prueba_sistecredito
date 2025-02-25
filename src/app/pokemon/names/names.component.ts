@@ -15,8 +15,7 @@ export class NamesComponent implements OnInit {
     errorMessage: string = '';
   
     constructor(
-      private nameService: NamesService, 
-      private localService: LocalService,
+      private nameService: NamesService,
       private router: Router) {}
   
     ngOnInit(): void {
