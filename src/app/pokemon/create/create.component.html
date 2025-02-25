@@ -1,0 +1,27 @@
+<form class="pokemon-form" [formGroup]="pokemonForm" (ngSubmit)="onSubmit()">
+    <div class="pokemon-form__group">
+      <label for="pokemonName" class="pokemon-form__group-label">Nombre del Pokemon</label>
+      <input id="pokemonName" formControlName="pokemonName" class="pokemon-form__group-control" type="text"
+        placeholder="Ingrese el nombre del pokemon" />
+    </div>
+  
+    <div class="pokemon-form__group">
+      <label for="pokemonOrder" class="pokemon-form__group-label">Orden del pokemon</label>
+      <input id="pokemonOrder" formControlName="pokemonOrder" class="pokemon-form__group-control" type="number" 
+      placeholder="Ingrese el orden del pokemon" />
+    </div>
+  
+    <div class="pokemon-form__group">
+      <label for="pokemonWeight" class="pokemon-form__group-label">Peso del pokemon</label>
+      <input id="pokemonWeight" formControlName="pokemonWeight" class="pokemon-form__group-control" type="number"
+        placeholder="Ingrese el peso del pokemon" />
+    </div>
+  
+    <div class="pokemon-form__group">
+        <label for="pokemonHeight" class="pokemon-form__group-label">Altura del pokemon</label>
+        <input id="pokemonHeight" formControlName="pokemonHeight" class="pokemon-form__group-control" type="number"
+          placeholder="Ingrese la altura del pokemon" />
+    </div>
+  
+    <button type="submit" class="pokemon-form__button">Registrar pokemon</button>
+  </form>
