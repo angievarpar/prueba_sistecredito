@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Pokemon } from '../../models/pokemon';
+import { Pokemon, PokemonList } from '../../models/pokemon';
 import { NamesService } from '../../service/names.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { NamesService } from '../../service/names.service';
   styleUrl: './names.component.scss'
 })
 export class NamesComponent implements OnInit {
-    names: Pokemon[] = [];
+    names = {};
     loading: boolean = true;
     errorMessage: string = '';
   

@@ -6,12 +6,12 @@
     </p>
   
     <p *ngIf="errorMessage" class="names__message names__message--error" aria-live="assertive">
-      ❌ {{ errorMessage }}
+       {{ errorMessage }}
     </p>
   
     <ng-container *ngIf="!loading && !errorMessage">
       <div class="names__grid">
-        <li *ngFor="let name of names" [name]="name"></li>
+        <li *ngFor="let name.name of names" [name]="name.name"></li>
       </div>
     </ng-container>
   </div>

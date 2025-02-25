@@ -17,3 +17,13 @@ export interface Ability {
     name: string;
     url: string;
 }
+
+export interface PokemonList {
+    count: number;
+    results: PokemonItem[];
+}
+
+export interface PokemonItem {
+    name: string;
+    url: string;
+}
