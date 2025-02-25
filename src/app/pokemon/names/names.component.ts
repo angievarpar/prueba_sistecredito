@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Pokemon, PokemonList } from '../../models/pokemon';
 import { NamesService } from '../../service/names.service';
+import { Router } from '@angular/router';
+import { LocalService } from '../../service/local.service';
 
 @Component({
   selector: 'app-names',
@@ -13,7 +14,10 @@ export class NamesComponent implements OnInit {
     loading: boolean = true;
     errorMessage: string = '';
   
-    constructor(private nameService: NamesService) {}
+    constructor(
+      private nameService: NamesService, 
+      private localService: LocalService,
+      private router: Router) {}
   
     ngOnInit(): void {
       this.getAllPokemons();
@@ -26,10 +30,14 @@ export class NamesComponent implements OnInit {
           this.loading = false;
         },
         error: (error) => {
-          this.errorMessage = 'Error al cargar los usuarios';
+          this.errorMessage = 'Error al cargar los pokemones';
           this.loading = false;
           console.error(error);
         }
       });
+    }
+
+    goToCreate(): void {
+      this.router.navigate(['/pokemon/create']);
     }
 }

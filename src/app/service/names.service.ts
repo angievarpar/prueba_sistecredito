@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Pokemon, PokemonList } from '../models/pokemon';
+import { randomUUID } from 'crypto';
 
 @Injectable({
   providedIn: 'root'
@@ -28,4 +29,5 @@ export class NamesService {
       })
     );
   }
+
 }

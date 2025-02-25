@@ -1,6 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { PokemonItem } from '../../models/pokemon';
 import { NamesService } from '../../service/names.service';
+import { LocalService } from '../../service/local.service';
 
 @Component({
   selector: 'app-detail',
@@ -10,13 +11,17 @@ import { NamesService } from '../../service/names.service';
 })
 export class DetailComponent implements OnInit {
   @Input() pokemonItem!: PokemonItem;
+  @Output() pokemonDeleted = new EventEmitter<string>();
+  
   detail = {};
   errorMessage: string = '';
+  pokemonUrl: string = '';
 
-  constructor(private nameService: NamesService) { }
+  constructor(private nameService: NamesService, private localService: LocalService) { }
 
   ngOnInit(): void {
-    this.getDetail(this.pokemonItem.url);
+    this.pokemonUrl = this.localService.getUrlPokemonSelect(); 
+    this.getDetail(this.pokemonUrl);
   }
 
   getDetail(url: string): void {
@@ -29,5 +34,9 @@ export class DetailComponent implements OnInit {
         console.error(error);
       }
     });
+  }
+
+  deleteEvent(): void {
+    this.pokemonDeleted.emit(this.pokemonItem.name);
   }
 }
