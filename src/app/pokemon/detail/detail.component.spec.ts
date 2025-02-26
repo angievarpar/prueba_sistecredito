@@ -25,8 +25,8 @@ describe('DetailComponent', () => {
     component = fixture.componentInstance;
 
     component.pokemonItem = {
-                "name": "bulbasaur",
-                "url": "https://pokeapi.co/api/v2/pokemon/1/"
+      "name": "bulbasaur",
+      "url": "https://pokeapi.co/api/v2/pokemon/1/"
     };
 
     fixture.detectChanges();
