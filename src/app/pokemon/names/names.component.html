@@ -1,0 +1,19 @@
+<div class="names">
+    <app-title [title]="Pokemon list"></app-title>
+    <button (click)="goToCreate()" class="event-list__button">Crear Evento</button>
+  
+    <p *ngIf="loading" class="names__message names__message--loading" aria-live="polite">
+      <span class="spinner"></span> Loading...
+    </p>
+  
+    <p *ngIf="errorMessage" class="names__message names__message--error" aria-live="assertive">
+       {{ errorMessage }}
+    </p>
+  
+    <ng-container *ngIf="!loading && !errorMessage">
+      <div class="names__grid" *ngFor="let item of names.results">
+        <app-detail [name]="item"></app-detail>
+      </div>
+    </ng-container>
+  </div>
+  

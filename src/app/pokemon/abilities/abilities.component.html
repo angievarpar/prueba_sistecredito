@@ -1,0 +1,18 @@
+<div class="abilities">
+    <app-title [title]="Abilities list"></app-title>
+  
+    <p *ngIf="loading" class="abilities__message abilities__message--loading" aria-live="polite">
+      <span class="spinner"></span> Loading...
+    </p>
+  
+    <p *ngIf="errorMessage" class="abilities__message abilities__message--error" aria-live="assertive">
+       {{ errorMessage }}
+    </p>
+  
+    <ng-container *ngIf="!loading && !errorMessage">
+      <div class="abilities__grid" *ngFor="let item of abilities.results">
+        <app-detail [name]="item"></app-detail>
+      </div>
+    </ng-container>
+  </div>
+  
