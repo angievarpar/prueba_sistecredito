@@ -1,0 +1,17 @@
+<div class="detail">
+    <div class="detail__header">
+        <h4>{{ detail.name }}</h4>
+    </div>
+    <div class="detail__content">
+        <p><strong>Order:</strong> {{ detail.order }}</p>
+        <p><strong>Weight:</strong> {{ detail.weight }}</p>
+        <p><strong>Height:</strong> {{ detail.height }}</p>
+        <p><strong>Experience:</strong> {{ detail.base_experience }}</p>
+        <div class="detail__abilities">
+            <li *ngFor="let item of detail.abilities.ability"></li>
+        </div>
+    </div>
+    <div class="detail__buttons">
+        <button (click)="deleteEvent()" class="detail__button detail__button--delete">Eliminar</button>
+    </div>
+</div>
